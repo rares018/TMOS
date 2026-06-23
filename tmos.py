@@ -82,5 +82,8 @@ while True:
             elif cmd[0] == "help":
                 print("ls,cd,mkdir,touch,rmdir,rmfile,cat,chfile,python,execfile,rename,break")
             
+        except KeyboardInterrupt:
+            pass
+        
         except Exception:
             pass
