@@ -30,7 +30,7 @@ while True:
                 os.rmdir(cmd[1])
                 print("dir:"+cmd[1]+" was removed.")
                 
-            elif cmd[0] == "rmfile":
+            elif cmd[0] == "rm":
                 os.remove(cmd[1])
                 print("file:"+cmd[1]+" was removed.")
                 
@@ -39,13 +39,41 @@ while True:
                     data = f.readlines()
                     for i in data:
                         print(i)
-                    
-            elif cmd[0] == "chfile":
-                for i in range(int(cmd[2])):
-                    with open (cmd[1],"a",encoding="utf-8") as f:
-                        num = input()
-                        f.write(num+"\n")
                         
+            elif cmd[0] == "cp":
+                with open(cmd[1],"r") as f:
+                    data = f.read()
+                with open(cmd[2],"w") as f:
+                    f.write(data)
+                    
+                    
+            elif cmd[0] == "lc":
+                with open(cmd[1],"r") as f:
+                    print(len(f.readlines()))
+                    
+            elif cmd[0] == "rml":
+                with open(cmd[1],"r") as f:
+                    data = f.readlines()
+                data.pop(int(cmd[2])-1)
+                with open(cmd[1],"w") as f:
+                    for i in data:
+                        f.write(i)
+                        
+            elif cmd[0] == "chfile":
+                print("EDITOR to exit,type ==q== | rewrite to empty and touch")
+                while True:
+                    edt = input()
+                    if edt == "==q==":
+                        break
+                    elif edt == "rewrite":
+                        with open(cmd[1],"w") as f:
+                            print("file rewritten")
+                    else:
+                        with open(cmd[1],"a") as f:
+                            f.write(edt)
+                            f.write("\n")
+                
+                
             elif cmd[0] == "python":
                 print("welcome th the ide!q to exit h for help.")
                 while True:
@@ -80,7 +108,7 @@ while True:
                 break
             
             elif cmd[0] == "help":
-                print("ls,cd,mkdir,touch,rmdir,rmfile,cat,chfile,python,execfile,rename,break")
+                print("ls,cd,mkdir,touch,rmdir,rm,cat,chfile,python,execfile,rename,break,rml,lc,cp")
             
         except KeyboardInterrupt:
             pass
