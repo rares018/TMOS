@@ -23,7 +23,7 @@ while True:
                 print("dir made")
             
             elif cmd[0] == "make" or cmd[0] == "touch":
-                with open (cmd[1],"w",encoding="utf-8") as f:
+                with open (cmd[1],"w") as f:
                     print("file:"+cmd[1]+" was made.")
             
             elif cmd[0] == "rmdir":
@@ -35,7 +35,7 @@ while True:
                 print("file:"+cmd[1]+" was removed.")
                 
             elif cmd[0] == "show" or cmd[0] == "cat":
-                with open (cmd[1],"r",encoding="utf-8") as f:
+                with open (cmd[1],"r") as f:
                     data = f.readlines()
                     for i in data:
                         print(i)
@@ -93,7 +93,7 @@ while True:
                                 print(e)
                                 
             elif cmd[0] == "execfile":
-                with open (cmd[1],"r",encoding = "utf-8") as f:
+                with open (cmd[1],"r") as f:
                     data = f.read()
                     try:
                         exec(data)
