@@ -132,7 +132,7 @@ while True:
                 break
             
             elif cmd[0] == "help":
-                print("ls,cd,mkdir,touch,rmdir,rm,cat,chfile,python,execfile,rename,break,rml,lc,cp")
+                print("ls,cd,mkdir,touch,rmdir,rm,cat,chfile,python,execfile,rename,break,rml,lc,cp,insert,mt")
             
         except KeyboardInterrupt:
             pass
