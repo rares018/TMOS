@@ -37,8 +37,11 @@ while True:
             elif cmd[0] == "show" or cmd[0] == "cat":
                 with open (cmd[1],"r") as f:
                     data = f.readlines()
-                    for i in data:
-                        print(i)
+                line = 1
+                for i in data:
+                    print("[LINE:"+str(line)+"]"+i)
+                    line += 1
+                
                         
             elif cmd[0] == "cp":
                 with open(cmd[1],"r") as f:
@@ -91,7 +94,28 @@ while True:
                                 exec(ide)
                             except Exception as e:
                                 print(e)
-                                
+            
+            elif cmd[0] == "mt":
+                with open(cmd[1],"r") as f:
+                    data = f.readlines()
+                    
+                change = input()
+                data[int(cmd[2])-1] = change+"\n"
+                with open(cmd[1],"w")as f:
+                    pass
+                for i in data:
+                    with open(cmd[1],"a") as f:
+                        f.write(i)
+            
+            elif cmd[0] == "insert":
+                with open(cmd[1],"r") as f:
+                    data = f.readlines()
+                data.insert(int(cmd[2])-1,"\n")
+                with open(cmd[1],"w") as f:
+                    for i in data:
+                        f.write(i)
+                
+                             
             elif cmd[0] == "execfile":
                 with open (cmd[1],"r") as f:
                     data = f.read()
