@@ -134,8 +134,11 @@ while True:
             elif cmd[0] == "help":
                 print("ls,cd,mkdir,touch,rmdir,rm,cat,chfile,python,execfile,rename,break,rml,lc,cp,insert,mt")
             
+            else:
+                raise Exception("command invalid.")
+            
         except KeyboardInterrupt:
             pass
         
-        except Exception:
-            pass
+        except Exception as e:
+            print(e)
