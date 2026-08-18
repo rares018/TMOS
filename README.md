@@ -16,5 +16,4 @@ TMOS has the built-in command "execfile",meaning the user can make executable fi
 
 The TMOS project has the MIT license.
 
-### contributors
-  Popa Rares Mihai
+
