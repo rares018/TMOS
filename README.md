@@ -6,7 +6,7 @@ TMOS is a lightweight shell for most devices,it can run in both cpython(python3)
 
 ## beginner help
 
-TMOS is actually quite beginner friendly,you can see all of the commands with the "help" command.To exit,enter break.If you get stuck in an endless loop in the REPL,just use CTRL+C (KeyboardInterrupt).
+TMOS is beginner friendly,you can see all of the commands with the "help" command.To exit,enter "break".If you get stuck in an endless loop by a script or the REPL,just use CTRL+C (KeyboardInterrupt).
 
 ## user-made apps
 
