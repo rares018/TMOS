@@ -137,8 +137,8 @@ while True:
             else:
                 raise Exception("command invalid.")
             
-        except KeyboardInterrupt:
-            pass
+    except KeyboardInterrupt:
+        pass
         
-        except Exception as e:
-            print(e)
+    except Exception as e:
+        print(e)
