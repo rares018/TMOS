@@ -5,11 +5,11 @@ except Exception:
     
 
 while True:
-    cmd = input(str(os.getcwd())+">>>")
-    if cmd == "":
-        pass
-    else:
-        try:
+    try:
+        cmd = input(str(os.getcwd())+">>>")
+        if cmd == "":
+            pass
+        else:
             cmd = cmd.split()
             
             if cmd[0] == "ls":
