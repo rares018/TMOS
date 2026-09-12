@@ -2,7 +2,7 @@
 
 ## Introduction
 
-TMOS is a lightweight shell for most devices,it can run in both cpython(python3) and micropython.
+TMOS is a lightweight shell for most devices,it can run in both cpython(python3) and micropython with 0%dependencies.
 
 ## beginner help
 
