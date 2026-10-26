@@ -128,14 +128,75 @@ while True:
             elif cmd[0] == "rename":
                 os.rename(cmd[1],cmd[2])
                 
-            elif cmd[0] == "break":
+            elif cmd[0] == "lsgrep":
+                for i in os.listdir():
+                    if cmd[1] in i:
+                        print(i)
+                    else:
+                        pass
+                    
+            elif cmd[0] == "isfile":
+                try:
+                    os.chdir(cmd[1])
+                    os.chdir("..")
+                    print("No, '"+str(cmd[1])+" ' is a directory.")
+                    
+                except Exception:
+                    if cmd[1] in os.listdir():
+                        print("Yes, '"+str(cmd[1])+" ' is a file.")
+                    else:
+                        print("it is not a part of the current directory.")
+            
+            elif cmd[0] == "rmgrep":
+                for i in os.listdir():
+                    if cmd[1] in i:
+                        try:
+                            os.remove(i)
+                            print("[]Removed :' "+str(i)+" '")
+                        except Exception:
+                            pass
+                    else:
+                        pass
+                    
+                    
+            elif cmd[0] == "sysinfo":
+                try:
+                    for i in os.uname():
+                        print(i)
+                except Exception:
+                    print("os:windows/unknown")
+                
+                
+            elif cmd[0] == "exit":
                 break
             
             elif cmd[0] == "help":
-                print("ls,cd,mkdir,touch,rmdir,rm,cat,chfile,python,execfile,rename,break,rml,lc,cp,insert,mt")
+                print("""
+ls:lists contents of the current directory 
+cd:changes the current directory | cd [arg2]
+mkdir: makes a directory |mkdir [arg2]
+touch:makes a file | touch [arg2]
+sysinfo:prints information about host system
+isfile:shows if it is a file | isfile [arg2]
+rmgrep:removes all files where arg2 is in their name |rmgrep [arg2]
+lsgrep:shows all parts of the curremt working directory with arg2 in their name | lsgrep [arg2]
+rmdir:removes a directory that has no files in it | rmdir [arg2]
+rm:removes a file | rm [arg2]
+cat:prints contents of a file |cat [arg2]
+chfile:adds parts to a file |chfile [arg2]
+python:puts you in an interactive python REPL
+execfile executes a file using whichever varitaion of the language you are using |execfile [arg2]
+rename rename a file or directory | rename [arg2]
+exit:exits tmos
+rml:removes line |rml [file] [line]
+lc: prints line count |lc [arg2]
+cp: used to copy |cp [arg2]
+insert: inserts a blank line in a file |insert [file] [line]
+mt:edits(or you could say mutates) a line of a file by asking you what to replace it with | mt [file] [line]
+""")
             
             else:
-                raise Exception("command invalid.")
+                raise Exception("command invalid|try using help to find commands.")
             
     except KeyboardInterrupt:
         pass
